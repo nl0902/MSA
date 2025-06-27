@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>加入我们 - 明士善商同盟会</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 18px;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+    a:hover {
+      color: #b4975a;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex-grow: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: #1a1a1a;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 3.5rem;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+    }
+
+    nav ul li {
+      position: relative;
+      cursor: pointer;
+    }
+
+    nav ul li::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background-color: #b4975a;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li:hover::after,
+    nav ul li.active::after {
+      width: 100%;
+    }
+
+    header.page-header {
+      padding: 6rem 0 3rem 0;
+      text-align: center;
+    }
+
+    header.page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      letter-spacing: 0.25em;
+      color: #b4975a;
+    }
+
+    main {
+      margin-bottom: 5rem;
+    }
+
+    .intro-text {
+      max-width: 720px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+
+    form.join-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 18px 40px rgba(180, 148, 78, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    form.join-form:hover {
+      box-shadow: 0 28px 60px rgba(180, 148, 78, 0.35);
+      border-color: #b4975a;
+    }
+
+    label {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.25s ease;
+      resize: vertical;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #b4975a;
+      box-shadow: 0 0 6px rgba(180, 148, 78, 0.5);
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button.submit-btn {
+      background-color: #b4975a;
+      color: #fff;
+      font-weight: 600;
+      padding: 1rem 0;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(180, 148, 78, 0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background-color: #d1b76f;
+    }
+
+    /* 页脚 */
+    footer {
+      background: #1a1a1a;
+      color: #b4975a;
+      padding: 4rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      letter-spacing: 0.25em;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .footer-info p {
+      margin: 0.3rem 0;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      header.page-header h1 {
+        font-size: 2.5rem;
+      }
+      form.join-form {
+        padding: 2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 导航 -->
+  <nav class="container">
+    <div class="logo">明士善商同盟会</div>
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="news.html">新闻</a></li>
+      <li><a href="members.html">成员</a></li>
+      <li><a href="events.html">活动</a></li>
+      <li class="active"><a href="join.html">加入我们</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- 页面头部 -->
+  <header class="page-header container">
+    <h1>加入明士善商同盟会</h1>
+  </header>
+
+  <main class="container">
+    <p class="intro-text">
+      欢迎具有卓越商业眼光和社会责任感的企业家与专业人士申请加入我们的同盟。一起共创商业辉煌与社会价值。
+    </p>
+
+    <form class="join-form" action="#" method="post" aria-label="加入我们申请表">
+      <label for="name">姓名 *</label>
+      <input type="text" id="name" name="name" placeholder="请输入您的姓名" required />
+
+      <label for="company">公司名称 *</label>
+      <input type="text" id="company" name="company" placeholder="请输入您的公司名称" required />
+
+      <label for="email">邮箱 *</label>
+      <input type="email" id="email" name="email" placeholder="请输入有效邮箱" required />
+
+      <label for="phone">联系电话 *</label>
+      <input type="tel" id="phone" name="phone" placeholder="请输入联系电话" required />
+
+      <label for="message">简短介绍 / 申请理由</label>
+      <textarea id="message" name="message" placeholder="请简要介绍您自己及加入动机"></textarea>
+
+      <button type="submit" class="submit-btn" aria-label="提交申请表">提交申请</button>
+    </form>
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="footer-logo">上海明士善商同盟会</div>
+    <div class="footer-info">
+      <p>&copy; 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
+      <p>地址：上海市中国(上海)自由贸易试验区富特北路353号2楼 | 电话：177 6583 0902 | 邮箱：wning687@gmail.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>

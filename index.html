@@ -49,9 +49,16 @@
       z-index: 10;
     }
 
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
     nav .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 400;
       letter-spacing: 0.18em;
       color: #1a1a1a;
@@ -297,49 +304,55 @@
 
   <!-- 导航 -->
   <nav>
-    <ul>
-      <li><a href="index.html">首页</a></li>
-      <li><a href="about.html">关于我们</a></li>
-      <li><a href="news.html">新闻</a></li>
-      <li><a href="members.html">成员</a></li>
-      <li><a href="events.html">活动</a></li>
-      <li><a href="join.html">加入我们</a></li>
-      <li><a href="contact.html">联系我们</a></li>
-    </ul>
+    <div class="container">
+      <div class="logo">上海明士善商同盟会</div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="news.html">新闻</a></li>
+        <li><a href="members.html">成员</a></li>
+        <li><a href="events.html">活动</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
   </nav>
-  
 
-  <!-- 轮播图 -->
+  <!-- 其他内容 -->
   <section class="hero">
     <div class="slides">
-      <div class="slide active" style="background-image: url('https://img.icons8.com/ios-filled/24/ffffff/weixing.png');"></div>
-      <div class="slide" style="background-image: url('https://img.icons8.com/ios-filled/24/ffffff/weixing.png');"></div>
-      <div class="slide" style="background-image: url('https://img.icons8.com/ios-filled/24/ffffff/weixing.png');"></div>
-    </div>
-    <div class="controls">
-      <button onclick="prevSlide()">‹</button>
-      <button onclick="nextSlide()">›</button>
+      <div class="slide active" style="background-image: url('images/hero1.jpg');"></div>
+      <div class="slide" style="background-image: url('images/hero2.jpg');"></div>
+      <div class="slide" style="background-image: url('images/hero3.jpg');"></div>
     </div>
     <div class="hero-text">
-      <h1>汇聚商界精英</h1>
-      <p>搭建高端商业资源对接平台</p>
+      <h1>欢迎加入我们</h1>
+      <p>汇聚商界精英 高端商业资源对接平台</p>
+    </div>
+    <div class="controls">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
     </div>
   </section>
 
-  <!-- 新闻 & 成员等可添加内容区域 -->
+  <section>
+    <h2 class="section-title">我们的成员</h2>
+    <p>我们拥有一批优秀的成员，涵盖各个行业领域，他们共同推动商业的未来。</p>
+    <div class="members">
+      <!-- 成员卡片 -->
+    </div>
+  </section>
 
   <!-- 页脚 -->
   <footer>
-    <div class="footer-container container">
-      <div class="footer-logo">
-        上海明士善商同盟会
-      </div>
+    <div class="footer-container">
+      <div class="footer-logo">上海明士善商同盟会</div>
       <div class="footer-info">
-        <p>&copy; 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
+       <p>&copy; 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
         <p>地址：上海市中国(上海)自由贸易试验区富特北路353号2楼 | 电话：177 6583 0902 | 邮箱：wning687@gmail.com</p>
       </div>
       <div class="footer-social">
-        <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/weixing.png" alt="WeChat" /></a>
+      <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/weixing.png" alt="WeChat" /></a>
         <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn" /></a>
         <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/new-post.png" alt="Email" /></a>
       </div>
@@ -347,26 +360,31 @@
   </footer>
 
   <script>
-    let current = 0;
+    // 图片轮播控制
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
     const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
       });
     }
 
-    function nextSlide() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
 
-    function prevSlide() {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    }
-
-    setInterval(nextSlide, 8000);
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
   </script>
+
 </body>
 </html>

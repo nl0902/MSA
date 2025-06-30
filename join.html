@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>成员风采 - 明士善商同盟会</title>
+  <title>加入我们 - 明士善商同盟会</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
 
   <style>
-    /* 保留你第一个页面的样式，尤其是导航样式 */
     *, *::before, *::after {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -20,10 +19,10 @@
       font-size: 18px;
       line-height: 1.7;
       letter-spacing: 0.04em;
-      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
     a {
@@ -115,69 +114,87 @@
       margin-bottom: 5rem;
     }
 
-    /* 成员展示区 */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 3rem;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 10px;
+    .intro-text {
+      max-width: 720px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
     }
 
-    .member-card {
+    form.join-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 2.5rem 2rem;
       box-shadow: 0 18px 40px rgba(180, 148, 78, 0.15);
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      user-select: none;
+      transition: box-shadow 0.3s ease;
     }
 
-    .member-card:hover {
+    form.join-form:hover {
       box-shadow: 0 28px 60px rgba(180, 148, 78, 0.35);
       border-color: #b4975a;
-      background-color: #fff8e1;
-      color: #b4975a;
     }
 
-    .member-photo {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.4rem;
-      border: 3px solid #b4975a;
-      transition: transform 0.3s ease;
-    }
-
-    .member-card:hover .member-photo {
-      transform: scale(1.05);
-      border-color: #d1b76f;
-    }
-
-    .member-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .member-title {
+    label {
       font-weight: 600;
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
     }
 
-    .member-desc {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
-      color: #444;
-      line-height: 1.5;
-      letter-spacing: 0.04em;
-      min-height: 80px;
+      padding: 0.7rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.25s ease;
+      resize: vertical;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #b4975a;
+      box-shadow: 0 0 6px rgba(180, 148, 78, 0.5);
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button.submit-btn {
+      background-color: #b4975a;
+      color: #fff;
+      font-weight: 600;
+      padding: 1rem 0;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(180, 148, 78, 0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background-color: #d1b76f;
     }
 
     /* 页脚 */
@@ -212,11 +229,8 @@
       header.page-header h1 {
         font-size: 2.5rem;
       }
-      .member-name {
-        font-size: 1.3rem;
-      }
-      .member-desc {
-        min-height: auto;
+      form.join-form {
+        padding: 2rem 1.2rem;
       }
     }
   </style>
@@ -231,9 +245,9 @@
         <li><a href="index.html">首页</a></li>
         <li><a href="about.html">关于我们</a></li>
         <li><a href="news.html">新闻</a></li>
-        <li><a href="members.html" class="active">成员</a></li>  <!-- 当前页加active -->
+        <li><a href="members.html">成员</a></li>
         <li><a href="events.html">活动</a></li>
-        <li><a href="join.html">加入我们</a></li>
+        <li class="active"><a href="join.html">加入我们</a></li>
         <li><a href="contact.html">联系我们</a></li>
       </ul>
     </div>
@@ -241,42 +255,40 @@
 
   <!-- 页面头部 -->
   <header class="page-header container">
-    <h1>成员风采</h1>
+    <h1>加入明士善商同盟会</h1>
   </header>
 
   <main class="container">
-    <section class="members-grid" aria-label="成员列表">
-      <article class="member-card" tabindex="0" role="article" aria-label="张明 - 会长">
-        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="张明照片" class="member-photo" />
-        <h2 class="member-name">张明</h2>
-        <p class="member-title">会长</p>
-        <p class="member-desc">资深企业家，致力于推动区域商业合作与资源整合，推动同盟持续发展。</p>
-      </article>
+    <p class="intro-text">
+      欢迎具有卓越商业眼光和社会责任感的企业家与专业人士申请加入我们的同盟。一起共创商业辉煌与社会价值。
+    </p>
 
-      <article class="member-card" tabindex="0" role="article" aria-label="李华 - 副会长">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="李华照片" class="member-photo" />
-        <h2 class="member-name">李华</h2>
-        <p class="member-title">副会长</p>
-        <p class="member-desc">专注数字经济与创新，积极搭建会员企业间的协作桥梁。</p>
-      </article>
+    <form class="join-form" action="#" method="post" aria-label="加入我们申请表">
+      <label for="name">姓名 *</label>
+      <input type="text" id="name" name="name" placeholder="请输入您的姓名" required />
 
-      <article class="member-card" tabindex="0" role="article" aria-label="王强 - 理事">
-        <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="王强照片" class="member-photo" />
-        <h2 class="member-name">王强</h2>
-        <p class="member-title">理事</p>
-        <p class="member-desc">企业管理专家，擅长品牌建设及战略规划，助力企业创新发展。</p>
-      </article>
-    </section>
-    
-    
+      <label for="company">公司名称 *</label>
+      <input type="text" id="company" name="company" placeholder="请输入您的公司名称" required />
+
+      <label for="email">邮箱 *</label>
+      <input type="email" id="email" name="email" placeholder="请输入有效邮箱" required />
+
+      <label for="phone">联系电话 *</label>
+      <input type="tel" id="phone" name="phone" placeholder="请输入联系电话" required />
+
+      <label for="message">简短介绍 / 申请理由</label>
+      <textarea id="message" name="message" placeholder="请简要介绍您自己及加入动机"></textarea>
+
+      <button type="submit" class="submit-btn" aria-label="提交申请表">提交申请</button>
+    </form>
   </main>
 
-  <!-- 页脚 -->
   <footer>
     <div class="footer-logo">上海明士善商同盟会</div>
     <div class="footer-info">
-      <p>&copy; 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
-      <p>地址：上海市中国(上海)自由贸易试验区富特北路353号2楼 | 电话：177 6583 0902 | 邮箱：wning687@gmail.com</p>
+      <p>地址：上海市某某路123号</p>
+      <p>电话：123-456-7890</p>
+      <p>邮箱：info@mingbusiness.com</p>
     </div>
   </footer>
 

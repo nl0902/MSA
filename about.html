@@ -53,6 +53,13 @@
       z-index: 10;
     }
 
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
     nav .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
@@ -224,19 +231,20 @@
 <body>
 
   <!-- 导航 -->
-  <nav class="container">
-   <nav>
-  <ul>
-    <li><a href="index.html">首页</a></li>
-    <li><a href="about.html">关于我们</a></li>
-    <li><a href="news.html">新闻</a></li>
-    <li><a href="members.html">成员</a></li>
-    <li><a href="events.html">活动</a></li>
-    <li><a href="join.html">加入我们</a></li>
-    <li><a href="contact.html">联系我们</a></li>
-  </ul>
-</nav>
-      
+  <nav>
+    <div class="container">
+      <div class="logo">明士善商同盟会</div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="news.html">新闻</a></li>
+        <li><a href="members.html">成员</a></li>
+        <li><a href="events.html">活动</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- 页面头部 -->
   <header class="page-header container">
@@ -282,14 +290,13 @@
     </section>
 
    <!-- 联盟章程下载 -->
-<section id="charter" style="text-align: center; margin: 4rem auto;">
+  <section id="charter" style="text-align: center; margin: 4rem auto;">
     <h2 class="section-title">联盟章程</h2>
     <p>点击下方按钮下载联盟章程 PDF 文件：</p>
     <a href="docs/charter.pdf" download class="download-btn" style="display: inline-block; margin-top: 1rem; padding: 0.8rem 2rem; background-color: #b4975a; color: #fff; border-radius: 6px; font-weight: bold;">
       下载联盟章程 (PDF)
     </a>
   </section>
-  
 
   </main>
 

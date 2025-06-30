@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet" />
 
   <style>
+    /* 保留你第一个页面的样式，尤其是导航样式 */
     *, *::before, *::after {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -53,9 +54,16 @@
       z-index: 10;
     }
 
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
     nav .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 400;
       letter-spacing: 0.18em;
       color: #1a1a1a;
@@ -216,20 +224,19 @@
 <body>
 
   <!-- 导航 -->
-  <nav class="container">
-    <div class="logo">明士善商同盟会</div>
-    <nav>
-        <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="about.html">关于我们</a></li>
-          <li><a href="news.html">新闻</a></li>
-          <li><a href="members.html">成员</a></li>
-          <li><a href="events.html">活动</a></li>
-          <li><a href="join.html">加入我们</a></li>
-          <li><a href="contact.html">联系我们</a></li>
-        </ul>
-      </nav>
-      
+  <nav>
+    <div class="container">
+      <div class="logo">上海明士善商同盟会</div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="news.html">新闻</a></li>
+        <li><a href="members.html" class="active">成员</a></li>  <!-- 当前页加active -->
+        <li><a href="events.html">活动</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- 页面头部 -->
@@ -259,9 +266,9 @@
         <p class="member-title">理事</p>
         <p class="member-desc">企业管理专家，擅长品牌建设及战略规划，助力企业创新发展。</p>
       </article>
-
-      <!-- 你可以继续添加更多成员卡片 -->
     </section>
+    
+    
   </main>
 
   <!-- 页脚 -->

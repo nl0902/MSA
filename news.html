@@ -53,6 +53,13 @@
       z-index: 10;
     }
 
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
     nav .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
@@ -221,18 +228,20 @@
 <body>
 
   <!-- 导航 -->
-  <nav class="container">
-  <div class="logo">明士善商同盟会</div>
-  <ul>
-    <li><a href="index.html">首页</a></li>
-    <li><a href="about.html">关于我们</a></li>
-    <li class="active"><a href="news.html">新闻</a></li>
-    <li><a href="members.html">成员</a></li>
-    <li><a href="events.html">活动</a></li>
-    <li><a href="join.html">加入我们</a></li>
-    <li><a href="contact.html">联系我们</a></li>
-  </ul>
-</nav>
+  <nav>
+    <div class="container">
+      <div class="logo">明士善商同盟会</div>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li class="active"><a href="news.html">新闻</a></li>
+        <li><a href="members.html">成员</a></li>
+        <li><a href="events.html">活动</a></li>
+        <li><a href="join.html">加入我们</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- 页面头部 -->
   <header class="page-header container">
@@ -260,27 +269,18 @@
     </ul>
 
     <!-- 分页 -->
-    <nav>
-        <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="about.html">关于我们</a></li>
-          <li><a href="news.html">新闻</a></li>
-          <li><a href="members.html">成员</a></li>
-          <li><a href="events.html">活动</a></li>
-          <li><a href="join.html">加入我们</a></li>
-          <li><a href="contact.html">联系我们</a></li>
-        </ul>
-      </nav>
-      
+    <nav> 
+    </nav>
+</main>
 
-  <!-- 页脚 -->
-  <footer>
-    <div class="footer-logo">上海明士善商同盟会</div>
-    <div class="footer-info">
-      <p>&copy; 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
+<!-- 页脚 -->
+<footer>
+  <div class="footer-logo">明士善商同盟会</div>
+  <div class="footer-info">
+    <p> 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
       <p>地址：上海市中国(上海)自由贸易试验区富特北路353号2楼 | 电话：177 6583 0902 | 邮箱：wning687@gmail.com</p>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 </body>
 </html>

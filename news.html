@@ -114,7 +114,6 @@
       margin-bottom: 5rem;
     }
 
-    /* 新闻列表 */
     .news-list {
       max-width: 900px;
       margin: 0 auto 3rem auto;
@@ -123,15 +122,17 @@
     }
 
     .news-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
       border-left: 6px solid #b4975a;
-      padding-left: 1.5rem;
+      padding: 1.4rem 1.8rem;
       margin-bottom: 2rem;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
       border-radius: 6px;
       background: #fff;
       box-shadow: 0 10px 30px rgba(180,148,78,0.08);
-      padding: 1.4rem 1.8rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .news-item:hover {
@@ -139,28 +140,36 @@
       box-shadow: 0 18px 50px rgba(180,148,78,0.25);
     }
 
-    .news-item h3 {
+    .news-img {
+      width: 200px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+
+    .news-content h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       margin-bottom: 0.4rem;
       color: #b4975a;
     }
 
-    .news-item .date {
+    .news-content .date {
       font-size: 0.9rem;
       color: #999;
       margin-bottom: 0.8rem;
       letter-spacing: 0.06em;
     }
 
-    .news-item p {
+    .news-content p {
       font-size: 1rem;
       color: #444;
       line-height: 1.6;
       letter-spacing: 0.04em;
     }
 
-    /* 分页 */
     .pagination {
       max-width: 900px;
       margin: 3rem auto 0 auto;
@@ -187,12 +196,10 @@
       border-color: #b4975a;
     }
 
-    /* 页脚 */
     footer {
       background: #1a1a1a;
       color: #b4975a;
       padding: 4rem 2rem;
-      font-family: 'Montserrat', sans-serif;
       text-align: center;
       letter-spacing: 0.04em;
     }
@@ -216,10 +223,21 @@
         flex-direction: column;
         gap: 1rem;
       }
+
       header.page-header h1 {
         font-size: 2.5rem;
       }
-      .news-item h3 {
+
+      .news-item {
+        flex-direction: column;
+      }
+
+      .news-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .news-content h3 {
         font-size: 1.2rem;
       }
     }
@@ -227,7 +245,6 @@
 </head>
 <body>
 
-  <!-- 导航 -->
   <nav>
     <div class="container">
       <div class="logo">上海明士善商同盟会</div>
@@ -243,7 +260,6 @@
     </div>
   </nav>
 
-  <!-- 页面头部 -->
   <header class="page-header container">
     <h1>新闻动态</h1>
   </header>
@@ -251,36 +267,45 @@
   <main class="container">
     <ul class="news-list">
       <li class="news-item" tabindex="0">
-        <h3>明士善商同盟会2025年春季论坛圆满落幕</h3>
-        <div class="date">2025年6月15日</div>
-        <p>汇聚业内精英，共话未来发展。论坛聚焦数字经济，推动商业合作迈向新高度。</p>
+        <img src="https://i.ibb.co/dscKWhNs/headway-F2-KRf-Qf-Cqw-unsplash.jpg" alt="春季论坛" class="news-img">
+        <div class="news-content">
+          <h3>明士善商同盟会2025年春季论坛圆满落幕</h3>
+          <div class="date">2025年6月15日</div>
+          <p>汇聚业内精英，共话未来发展。论坛聚焦数字经济，推动商业合作迈向新高度。</p>
+        </div>
       </li>
       <li class="news-item" tabindex="0">
-        <h3>联盟新增10家优质企业成员</h3>
-        <div class="date">2025年5月28日</div>
-        <p>热烈欢迎新成员加入，共建资源共享平台，携手创造共赢未来。</p>
+        <img src="https://i.ibb.co/JRrTdZjn/pexels-cottonbro-6814524.jpg" alt="新增成员" class="news-img">
+        <div class="news-content">
+          <h3>联盟新增10家优质企业成员</h3>
+          <div class="date">2025年5月28日</div>
+          <p>热烈欢迎新成员加入，共建资源共享平台，携手创造共赢未来。</p>
+        </div>
       </li>
       <li class="news-item" tabindex="0">
-        <h3>会长张明荣获“年度杰出企业家”称号</h3>
-        <div class="date">2025年4月10日</div>
-        <p>张会长以卓越领导力推动同盟发展，荣膺业界最高殊荣。</p>
+        <img src="https://i.ibb.co/3Y8Xy1Zp/2025-07-01-16-40-23.png" alt="张士建会长" class="news-img">
+        <div class="news-content">
+          <h3>会长张士建荣获“企业家公益践行者”称号</h3>
+          <div class="date">2025年4月10日</div>
+          <p>张会长以卓越领导力推动同盟发展，荣膺业界殊荣。</p>
+        </div>
       </li>
-      <!-- 更多新闻项可继续添加 -->
     </ul>
 
-    <!-- 分页 -->
-    <nav> 
+    <nav class="pagination">
+      <div class="page-btn active">1</div>
+      <div class="page-btn">2</div>
+      <div class="page-btn">3</div>
     </nav>
-</main>
+  </main>
 
-<!-- 页脚 -->
-<footer>
-  <div class="footer-logo">明士善商同盟会</div>
-  <div class="footer-info">
-    <p> 2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
+  <footer>
+    <div class="footer-logo">明士善商同盟会</div>
+    <div class="footer-info">
+      <p>2025 Shanghai MingShi Business Alliance. All Rights Reserved.</p>
       <p>地址：上海市中国(上海)自由贸易试验区富特北路353号2楼 | 电话：177 6583 0902 | 邮箱：wning687@gmail.com</p>
-  </div>
-</footer>
+    </div>
+  </footer>
 
 </body>
 </html>
